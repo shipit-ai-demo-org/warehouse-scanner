@@ -1,0 +1,19 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify application layout
+        run: |
+          test -f app.py
+          test -f requirements.txt
+          test -f scanner/parser.py
+          test -f scanner/validators.py
+
+      - name: Enforce intake schema contract
+        run: python3 scripts/check_schema.py
