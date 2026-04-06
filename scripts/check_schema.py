@@ -14,7 +14,7 @@ import re
 import sys
 from pathlib import Path
 
-EXPECTED_SCHEMA_VERSION = 1
+EXPECTED_SCHEMA_VERSION = 2
 
 
 def main() -> int:

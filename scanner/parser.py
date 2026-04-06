@@ -7,7 +7,7 @@ certification — CI enforces this via scripts/check_schema.py.
 
 from __future__ import annotations
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 GS = "\x1d"  # FNC1 group separator
 
@@ -15,6 +15,7 @@ GS = "\x1d"  # FNC1 group separator
 # AI -> (field name, fixed length or None for variable-length)
 SUPPORTED_AIS = {
     "01": ("gtin", 14),
+    "10": ("lot", None),  # schema v2: lot/batch tracking for recalls
     "21": ("serial", None),
     "30": ("quantity", None),
 }
